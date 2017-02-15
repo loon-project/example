@@ -1,0 +1,5 @@
+.idea
+basic/node_modules
+*.js
+*.js.map
+*.log
