@@ -1,0 +1,16 @@
+{
+  "development": {
+    "debug": true,
+    "client": "mysql",
+    "connection": {
+      "host": "127.0.0.1",
+      "user": "root",
+      "password": "",
+      "database": "lion_development"
+    },
+    "pool": {
+      "min": 0,
+      "max": 7
+    }
+  }
+}
