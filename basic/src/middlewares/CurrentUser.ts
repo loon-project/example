@@ -1,22 +1,20 @@
 import * as Express from "express";
-import IRequest from "../interfaces/IRequest";
-import {Component, Middleware} from "typed-framework";
-import UserService from "../services/UserService";
+import {Middleware, Req, Res, Next} from "typed-framework";
+import {IMiddleware} from "typed-framework/dts/mvc/interface/Middleware";
+import {UserService} from "../services/UserService";
 
-@Component()
-export class CurrentUser implements Middleware {
+@Middleware()
+export class CurrentUser implements IMiddleware {
 
     constructor(private userService: UserService) {
     }
 
-    public async use(request: IRequest, response: Express.Response, next: Express.NextFunction): Promise<any> {
+    public use(@Req() req: Express.Request, @Res() res: Express.Response, @Next() next: Express.NextFunction) {
 
-        const userId = request.cookies['user_id'];
+        const userId = req.cookies['user_id'];
 
-        request.currentUser = await this.userService.findById(userId);
+        res.locals.user = this.userService.findById(1);
 
         next();
-
-        return null;
     }
 }

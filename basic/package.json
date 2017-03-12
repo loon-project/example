@@ -3,12 +3,14 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "typed-framework": "0.0.107"
+    "mysql": "^2.13.0",
+    "typed-framework": "file:../../typed-framework"
   },
-  "typed": "./src/Application.js"
+  "devDependencies": {
+    "typescript": "^2.2.1"
+  }
 }
