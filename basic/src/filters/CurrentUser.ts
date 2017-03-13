@@ -8,9 +8,9 @@ export class CurrentUser implements IMiddleware {
     constructor(private userService: UserService) {
     }
 
-    public use(@Data() data: any, @Next() next: Express.NextFunction) {
+    public async use(@Data() data: any, @Next() next: Express.NextFunction) {
 
-        data.user = this.userService.findById(1);
+        data.user = await this.userService.findById(1);
 
         next();
     }

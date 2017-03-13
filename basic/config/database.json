@@ -6,7 +6,7 @@
       "host": "127.0.0.1",
       "user": "root",
       "password": "",
-      "database": "lion_development"
+      "database": "excelsior_development"
     },
     "pool": {
       "min": 0,

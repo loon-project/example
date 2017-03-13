@@ -1,4 +1,4 @@
-import {RestController, Get, Res, QueryParam, BeforeFilter, Data} from "typed-framework";
+import {RestController, Get, Res, BeforeFilter, Data} from "typed-framework";
 import * as Express from "express";
 import {CurrentUser} from "../filters/CurrentUser";
 

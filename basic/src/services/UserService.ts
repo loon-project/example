@@ -1,4 +1,4 @@
-import {Service, Converter} from "typed-framework";
+import {Service, Converter, ConnectionFactory} from "typed-framework";
 import {User} from "../models/User";
 
 const template = {
@@ -10,8 +10,10 @@ const template = {
 @Service()
 export class UserService {
 
+    private connection = ConnectionFactory.getConnection();
 
-    public findById(id: number) {
+
+    public async findById(id: number) {
 
         const userFromDB = {
             uuid: "123",
@@ -23,8 +25,12 @@ export class UserService {
 
         const user = converter.convert();
 
+        const member = await this.connection.select("*").from("members").where("id", 1);
+
+        console.log(member);
+
         if (id === 1) {
-            return user;
+            return member;
         } else {
             throw new Error("not found");
         }
