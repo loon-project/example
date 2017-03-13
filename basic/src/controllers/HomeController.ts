@@ -12,6 +12,6 @@ export class HomeController {
                        @QueryParam('size') size: number) {
 
         const currentUser = res.locals.user;
-        res.send(currentUser.name);
+        res.send(currentUser);
     }
 }
