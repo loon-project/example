@@ -1,4 +1,4 @@
-import {RestController, Get, Res, QueryParam, BeforeFilter} from "typed-framework";
+import {RestController, Get, Res, QueryParam, BeforeFilter, Data} from "typed-framework";
 import * as Express from "express";
 import {CurrentUser} from "../filters/CurrentUser";
 
@@ -7,11 +7,9 @@ import {CurrentUser} from "../filters/CurrentUser";
 export class HomeController {
 
     @Get("/")
-    public indexAction(@Res() res: Express.Response,
-                       @QueryParam('page') page: number,
-                       @QueryParam('size') size: number) {
+    public indexAction(@Data() data: any, @Res() res: Express.Response) {
 
-        const currentUser = res.locals.user;
+        const currentUser = data.user;
         res.send(currentUser);
     }
 }
