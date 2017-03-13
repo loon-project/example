@@ -1,9 +1,9 @@
-import {RestController, BeforeAction, Get, Res, QueryParam} from "typed-framework";
-import {CurrentUser} from "../middlewares/CurrentUser";
+import {RestController, Get, Res, QueryParam, BeforeFilter} from "typed-framework";
 import * as Express from "express";
+import {CurrentUser} from "../filters/CurrentUser";
 
 @RestController()
-@BeforeAction(CurrentUser)
+@BeforeFilter(CurrentUser)
 export class HomeController {
 
     @Get("/")

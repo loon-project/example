@@ -1,9 +1,8 @@
 import * as Express from "express";
-import {Middleware, Req, Res, Next} from "typed-framework";
-import {IMiddleware} from "typed-framework/dts/mvc/interface/Middleware";
+import {Req, Res, Next, Filter, IMiddleware} from "typed-framework";
 import {UserService} from "../services/UserService";
 
-@Middleware()
+@Filter()
 export class CurrentUser implements IMiddleware {
 
     constructor(private userService: UserService) {
