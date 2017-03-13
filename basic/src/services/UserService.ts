@@ -1,4 +1,4 @@
-import {Service, Converter, ConnectionFactory} from "typed-framework";
+import {Service, Converter, ConnectionFactory, LogFactory} from "typed-framework";
 import {User} from "../models/User";
 
 const template = {
@@ -12,6 +12,7 @@ export class UserService {
 
     private connection = ConnectionFactory.getConnection();
 
+    private logger = LogFactory.getLogger();
 
     public async findById(id: number) {
 
@@ -27,7 +28,7 @@ export class UserService {
 
         const member = await this.connection.select("*").from("members").where("id", 1);
 
-        console.log(member);
+        this.logger.info(JSON.stringify(member));
 
         if (id === 1) {
             return member;
