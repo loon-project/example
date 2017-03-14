@@ -8,8 +8,6 @@ export class HomeController {
 
     @Get("/")
     public indexAction(@Data() data: any, @Res() res: Express.Response) {
-
-        const currentUser = data.user;
-        res.send(currentUser);
+        res.send(data);
     }
 }
