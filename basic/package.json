@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "mysql": "^2.13.0",
-    "typed-framework": "0.4.4"
+    "typed-framework": "0.5.1"
   },
   "devDependencies": {
     "typescript": "^2.2.1"
