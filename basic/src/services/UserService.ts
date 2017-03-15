@@ -1,20 +1,24 @@
-import {Service, Converter, ConnectionFactory, LogFactory} from "typed-framework";
+import {Service, Converter, ConnectionFactory, LogFactory, ApplicationLoader, Inject} from "typed-framework";
 import {User} from "../models/User";
 
 const template = {
     uuid: 'id',
     created_at: "createdAt"
-}
-
+};
 
 @Service()
 export class UserService {
+
+    @Inject()
+    private application: ApplicationLoader;
 
     private connection = ConnectionFactory.getConnection();
 
     private logger = LogFactory.getLogger();
 
     public async findById(id: number) {
+
+        console.log(this.application.port);
 
         const userFromDB = {
             uuid: "123",
