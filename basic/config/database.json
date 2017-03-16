@@ -11,5 +11,19 @@
       "min": 0,
       "max": 7
     }
+  },
+
+  "production": {
+    "client": "mysql",
+    "connection": {
+      "host": "127.0.0.1",
+      "user": "root",
+      "password": "",
+      "database": "excelsior_development"
+    },
+    "pool": {
+      "min": 0,
+      "max": 7
+    }
   }
 }
